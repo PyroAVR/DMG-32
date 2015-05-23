@@ -1,3 +1,8 @@
+Emulator Project
+================
+I don't have a witty name for this...  This repository contains all the things necessary for making a working Retroarch emulator that fits inside a DMG GameBoy, -or- later, a custom casing with added awesomeness.
+Below are the projects which have been used to build this one...
+
 Adafruit-Retrogame
 ==================
 
