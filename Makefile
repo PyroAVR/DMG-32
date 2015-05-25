@@ -12,7 +12,9 @@ gamera: gamera.c
 	strip $@
 
 install:
-	mv $(EXECS) /usr/local/bin
+	mkdir -p /opt/init
+	mv retrogame /opt/init
+	cp retrogame.sh /etc/init.d/retrogame
 
 clean:
 	rm -f $(EXECS)
