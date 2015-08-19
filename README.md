@@ -3,6 +3,12 @@ Emulator Project
 I don't have a witty name for this...  This repository contains all the things necessary for making a working Retroarch emulator that fits inside a DMG GameBoy, -or- later, a custom casing with added awesomeness.
 Below are the projects which have been used to build this one...
 
+###What changed?
+Here's a list of the changes made to the original Adafruit code.
+ -Added a new I/O type.  Support for the Pixel interface board.
+ -10-retrogame.rules added.  Just copy it into the `/etc/udev/rules.d/` folder!
+ -Added retrogame.sh, it's a really handy sysV start script for retrogame!
+ -TODO: recompile new retrogame with Pixel interface board support.
 Adafruit-Retrogame
 ==================
 
@@ -18,14 +24,14 @@ Note that by default retrogame won't work with SDL2 applications that depend on 
 
 Connect to your Raspberry Pi in a terminal/SSH session and execute the following command to create and edit the file /etc/udev/rules.d/10-retrogame.rules:
 
-````
+```bash
 sudo nano /etc/udev/rules.d/10-retrogame.rules
-````
+```
 
 Once the nano text editor loads, copy this single line into the file:
 
-````
+```bash
 SUBSYSTEM=="input", ATTRS{name}=="retrogame", ENV{ID_INPUT_KEYBOARD}="1"
-````
+```
 
 Save the file by pressing Ctrl-O and enter, then press Ctrl-x to exit.  Restart your Raspberry Pi and run retrogame again, now button presses should register in SDL2 applications like the EmulationStation frontend to RetroPie

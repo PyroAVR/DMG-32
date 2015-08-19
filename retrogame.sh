@@ -6,7 +6,7 @@
 # Default-Start:     2
 # Default-Stop:     6
 # Short-Description: Virtual keyboard from GPIO
-# Description:  Run retrogame from Adafruit Industries located in /opt/init to create a virtual keyboard which reads directly from GPIO to creates keypress events.
+# Description:  Run retrogame from Adafruit Industries/Pixel located in /opt/init to create a virtual keyboard which reads directly from GPIO to creates keypress events.
 ### END INIT INFO
 case $1 in
   start)
