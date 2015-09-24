@@ -1,5 +1,9 @@
 /*
-ADAFRUIT RETROGAME UTILITY: remaps buttons on Raspberry Pi GPIO header
+Pixel RetroGame - An adaptation of Adafruit's Retrogame
+http://github.com/Adafruit/Adafruit-retrogame
+
+
+Remaps buttons on Raspberry Pi GPIO header
 to virtual USB keyboard presses.  Great for classic game emulators!
 Retrogame is interrupt-driven and efficient (usually under 0.3% CPU use)
 and debounces inputs for glitch-free gaming.
@@ -10,15 +14,26 @@ Internal pullups are used; no resistors required.  Avoid pins 8 and 10;
 these are configured as a serial port by default on most systems (this
 can be disabled but takes some doing).  Pin configuration is currently
 set in global table; no config file yet.  See later comments.
+***
+Do not disable the serial port, it is needed for the
+power management functionality of the Pixel Interface Board.
+Also, a config file is included in the Pixel repository.
+***
 
 Must be run as root, i.e. 'sudo ./retrogame &' or configure init scripts
 to launch automatically at system startup.
+***
+The default Pixel image will do this for you.
+***
 
 Requires uinput kernel module.  This is typically present on popular
 Raspberry Pi Linux distributions but not enabled on some older varieties.
 To enable, either type:
 
     sudo modprobe uinput
+  ***
+  This is taken care of for you in the Pixel image.
+  ***
 
 Or, to make this persistent between reboots, add a line to /etc/modules:
 
@@ -28,14 +43,20 @@ Prior versions of this code, when being compiled for use with the Cupcade
 or PiGRRL projects, required CUPCADE to be #defined.  This is no longer
 the case; instead a test is performed to see if a PiTFT is connected, and
 one of two I/O tables is automatically selected.
-
+***
+The Pixel code selects its own I/O table by default, and it is
+specified in the config file.
+***
 Written by Phil Burgess for Adafruit Industries, distributed under BSD
 License.  Adafruit invests time and resources providing this open source
 code, please support Adafruit and open-source hardware by purchasing
 products from Adafruit!
+***
+All the prototypes for the Pixel board, and any necessary components,
+were purchased from Adafruit! Thanks for being an inspiration!
+***
 
-
-Copyright (c) 2013 Adafruit Industries.
+Copyright (c) 2013 Adafruit Industries, Pixel Productions.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -59,70 +80,8 @@ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 */
+#include "px_retrogame.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <poll.h>
-#include <signal.h>
-#include <sys/mman.h>
-#include <linux/input.h>
-#include <linux/uinput.h>
-
-
-// START HERE ------------------------------------------------------------
-// This table remaps GPIO inputs to keyboard values.  In this initial
-// implementation there's a 1:1 relationship (can't attach multiple keys
-// to a button) and the list is fixed in code; there is no configuration
-// file.  Buttons physically connect between GPIO pins and ground.  There
-// are only a few GND pins on the GPIO header, so a breakout board is
-// often needed.  If you require just a couple extra ground connections
-// and have unused GPIO pins, set the corresponding key value to GND to
-// create a spare ground point.
-
-#define GND -1
-struct {
-	int pin;
-	int key;
-} *io, // In main() this pointer is set to one of the two tables below.
-   ioTFT[] = {
-	// This pin/key table is used if an Adafruit PiTFT display
-	// is detected (e.g. Cupcade or PiGRRL).
-	// Input   Output (from /usr/include/linux/input.h)
-	{   2,     KEY_LEFT     },   // Joystick (4 pins)
-	{   3,     KEY_RIGHT    },
-	{   4,     KEY_DOWN     },
-	{  17,     KEY_UP       },
-	{  27,     KEY_Z        },   // A/Fire/jump/primary
-	{  22,     KEY_X        },   // B/Bomb/secondary
-	{  23,     KEY_R        },   // Credit
-	{  18,     KEY_Q        },   // Start 1P
-	{  -1,     -1           } }, // END OF LIST, DO NOT CHANGE
-	// MAME must be configured with 'z' & 'x' as buttons 1 & 2 -
-	// this was required for the accompanying 'menu' utility to
-	// work (catching crtl/alt w/ncurses gets totally NASTY).
-	// Credit/start are likewise moved to 'r' & 'q,' reason being
-	// to play nicer with certain emulators not liking numbers.
-	// GPIO options are 'maxed out' with PiTFT + above table.
-	// If additional buttons are desired, will need to disable
-	// serial console and/or use P5 header.  Or use keyboard.
-   ioStandard[] = {
-	// This pin/key table is used when the PiTFT isn't found
-	// (using HDMI or composite instead), as with our original
-	// retro gaming guide.
-	//This pin/key table is set up for the tentative Pixel Interface Board,
-  // which fits quite nicely inside an original DMG Gameboy.
-	// Input   Output (from /usr/include/linux/input.h)
-	{  25,     KEY_LEFT     },   // Joystick (4 pins)
-	{   9,     KEY_RIGHT    },
-	{  10,     KEY_UP       },
-	{  17,     KEY_DOWN     },
-	{  23,     KEY_LEFTCTRL },   // A/Fire/jump/primary
-	{   7,     KEY_LEFTALT  },   // B/Bomb/secondary
-	// For credit/start/etc., use USB keyboard or add more buttons.
-	{  -1,     -1           } }; // END OF LIST, DO NOT CHANGE
 
 // A "Vulcan nerve pinch" (holding down a specific button combination
 // for a few seconds) issues an 'esc' keypress to MAME (which brings up
@@ -288,13 +247,13 @@ int main(int argc, char *argv[]) {
 	signal(SIGINT , signalHandler); // Trap basic signals (exit cleanly)
 	signal(SIGKILL, signalHandler);
 
-	// Select io[] table for Cupcade (TFT) or 'normal' project.
-	io = (access("/etc/modprobe.d/adafruit.conf", F_OK) ||
-	      access("/dev/fb1", F_OK)) ? ioStandard : ioTFT;
+	// Modified for Pixel devices, so io is set to use ioPixel.
+	io = ioPixel;
 
 	// If this is a "Revision 1" Pi board (no mounting holes),
 	// remap certain pin numbers in the io[] array for compatibility.
 	// This way the code doesn't need modification for old boards.
+  //This may not work now, the Pixel board only works on the Pi A+
 	board = boardType();
 	if(board == 0) {
 		for(i=0; io[i].pin >= 0; i++) {
