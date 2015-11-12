@@ -1,4 +1,4 @@
-EXECS = retrogame gamera
+EXECS = retrogame gamera pixel
 CC    = gcc $(CFLAGS) -Wall -O3 -fomit-frame-pointer -funroll-loops -s
 
 all: $(EXECS)
@@ -18,3 +18,7 @@ install:
 
 clean:
 	rm -f $(EXECS)
+
+pixel: px_retrogame.c
+		$(CC) $< -o $@
+		strip $@
