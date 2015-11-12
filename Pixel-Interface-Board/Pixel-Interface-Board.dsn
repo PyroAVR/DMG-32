@@ -3,7 +3,7 @@
     (string_quote ")
     (space_in_quoted_tokens on)
     (host_cad "KiCad's Pcbnew")
-    (host_version "0.201507290901+6012~27~ubuntu14.04.1-product")
+    (host_version "0.201509061501+6161~29~ubuntu14.04.1-product")
   )
   (resolution um 10)
   (unit um)
@@ -21,7 +21,7 @@
       )
     )
     (boundary
-      (rect pcb 91500 -15000 177755 -160000)
+      (rect pcb 11000 -12000 156000 -97000)
     )
     (via "Via[0-1]_600:400_um")
     (rule
@@ -33,47 +33,43 @@
   )
   (placement
     (component "LEDs:LED-5MM"
-      (place D1 100500 -42750 front 180 (PN LED))
+      (place D1 38750 -88000 front 270 (PN LED))
     )
     (component "Housings_DIP:DIP-8_W7.62mm"
-      (place IC1 128960 -52530 back 180 (PN "ATTINY85-P"))
+      (place IC1 48530 -59540 back 270 (PN "ATTINY85-P"))
     )
     (component Pin_Headers:Pin_Header_Straight_2x20
-      (place P1 110490 -29210 front 90 (PN CONN_02X20))
+      (place P1 25210 -78010 front 180 (PN CONN_02X20))
     )
     (component Resistors_ThroughHole:Resistor_Horizontal_RM10mm
-      (place R1 124675 -80485 front 180 (PN 10K))
-      (place R2 110705 -80485 front 180 (PN 10K))
-      (place R3 138645 -80485 front 180 (PN 10K))
-      (place R4 152615 -80485 front 180 (PN 10K))
-      (place R5 110705 -85565 front 180 (PN 10K))
-      (place R6 124675 -85565 front 180 (PN 10K))
-      (place R7 138645 -85565 front 180 (PN 10K))
-      (place R8 152615 -85565 front 180 (PN 10K))
-      (place R9 110455 -90625 front 180 (PN 10K))
-      (place R10 124675 -90645 front 180 (PN 10K))
-      (place R11 138645 -90645 front 180 (PN 10K))
-      (place R12 152615 -90645 front 180 (PN 10K))
-      (place R13 101750 -50500 front 180 (PN 1K))
-      (place R14 146000 -55000 front 270 (PN 10K))
-    )
-    (component Buttons_Switches_SMD:SW_SPST_PTS645
-      (place SW2 123710 -145730 front 0 (PN SW_PUSH))
-      (place SW5 141490 -145730 front 0 (PN SW_PUSH))
-    )
-    (component "Buttons_Switches_ThroughHole:SW_PUSH-12mm"
-      (place SW4 153000 -126750 front 45 (PN SW_PUSH))
-      (place SW7 142000 -114750 front 45 (PN SW_PUSH))
-      (place SW8 102250 -64500 back 180 (PN SW_PUSH))
-      (place SW10 157500 -106500 front 45 (PN SW_PUSH))
-      (place SW11 165750 -65250 back 180 (PN SW_PUSH))
-      (place SW1 168500 -118750 front 45 (PN SW_PUSH))
+      (place R1 127750 -18000 front 180 (PN 10K))
+      (place R2 133250 -64500 front 270 (PN 10K))
+      (place R3 101000 -75500 front 90 (PN 10K))
+      (place R4 131500 -37000 front 0 (PN 10K))
+      (place R5 131500 -48250 front 270 (PN 10K))
+      (place R6 137000 -78500 front 90 (PN 10K))
+      (place R7 106500 -51000 front 270 (PN 10K))
+      (place R8 68000 -76000 front 0 (PN 10K))
+      (place R9 107250 -90000 front 180 (PN 10K))
+      (place R10 92750 -35250 front 180 (PN 10K))
+      (place R11 47500 -17500 front 180 (PN 10K))
+      (place R12 114500 -56750 front 90 (PN 10K))
+      (place R13 46500 -86750 front 270 (PN 1K))
+      (place R14 42750 -44750 front 180 (PN 10K))
     )
     (component Buttons_Switches_ThroughHole:SW_PUSH_SMALL
-      (place SW3 110500 -114500 front 45 (PN SW_PUSH))
-      (place SW6 110500 -132000 front 225 (PN SW_PUSH))
-      (place SW9 101750 -123250 front 45 (PN SW_PUSH))
-      (place SW12 119250 -123250 front 45 (PN SW_PUSH))
+      (place SW3 110500 -78000 front 135 (PN SW_PUSH))
+      (place SW6 128000 -78000 front 315 (PN SW_PUSH))
+      (place SW9 119250 -86750 front 135 (PN SW_PUSH))
+      (place SW12 119250 -69250 front 135 (PN SW_PUSH))
+      (place SW1 114750 -18250 front 0 (PN SW_PUSH))
+      (place SW2 141730 -64790 front 90 (PN SW_PUSH))
+      (place SW4 121750 -32000 front 135 (PN SW_PUSH))
+      (place SW5 141730 -47010 front 90 (PN SW_PUSH))
+      (place SW7 110750 -40250 front 135 (PN SW_PUSH))
+      (place SW8 60500 -86250 back 270 (PN SW_PUSH))
+      (place SW10 104000 -26750 front 135 (PN SW_PUSH))
+      (place SW11 61250 -22750 back 270 (PN SW_PUSH))
     )
   )
   (library
@@ -173,44 +169,6 @@
       (pin Round[A]Pad_1998.98_um 1 -5080 0)
       (pin Round[A]Pad_1998.98_um 2 5080 0)
     )
-    (image Buttons_Switches_SMD:SW_SPST_PTS645
-      (outline (path signal 150  1750.71 0  1665.03 -541  1416.36 -1029.04  1029.04 -1416.36
-            541 -1665.03  0 -1750.71  -541 -1665.03  -1029.04 -1416.36  -1416.36 -1029.04
-            -1665.03 -541  -1750.71 0  -1665.03 541  -1416.36 1029.04  -1029.04 1416.36
-            -541 1665.03  0 1750.71  541 1665.03  1029.04 1416.36  1416.36 1029.04
-            1665.03 541))
-      (outline (path signal 50  5050 -3400  5050 3400))
-      (outline (path signal 50  -5050 3400  -5050 -3400))
-      (outline (path signal 50  -5050 -3400  5050 -3400))
-      (outline (path signal 50  -5050 3400  5050 3400))
-      (outline (path signal 150  3225 3225  3225 3100))
-      (outline (path signal 150  3225 -3225  3225 -3100))
-      (outline (path signal 150  -3225 -3225  -3225 -3100))
-      (outline (path signal 150  -3225 3100  -3225 3225))
-      (outline (path signal 150  3225 1400  3225 -1400))
-      (outline (path signal 150  -3225 3225  3225 3225))
-      (outline (path signal 150  -3225 1400  -3225 -1400))
-      (outline (path signal 150  -3225 -3225  3225 -3225))
-      (pin Rect[T]Pad_1550x1300_um 2 -3975 -2250)
-      (pin Rect[T]Pad_1550x1300_um 1 -3975 2250)
-      (pin Rect[T]Pad_1550x1300_um 1@1 3975 2250)
-      (pin Rect[T]Pad_1550x1300_um 2@1 3975 -2250)
-    )
-    (image "Buttons_Switches_ThroughHole:SW_PUSH-12mm"
-      (outline (path signal 150  4579.05 0  4354.94 -1415  3704.53 -2691.5  2691.5 -3704.53
-            1415 -4354.94  0 -4579.05  -1415 -4354.94  -2691.5 -3704.53
-            -3704.53 -2691.5  -4354.94 -1415  -4579.05 0  -4354.94 1415
-            -3704.53 2691.5  -2691.5 3704.53  -1415 4354.94  0 4579.05  1415 4354.94
-            2691.5 3704.53  3704.53 2691.5  4354.94 1415))
-      (outline (path signal 150  -6350 6350  6350 6350))
-      (outline (path signal 150  6350 6350  6350 -6350))
-      (outline (path signal 150  6350 -6350  -6350 -6350))
-      (outline (path signal 150  -6350 -6350  -6350 6350))
-      (pin Oval[A]Pad_3048x1727.2_um 1 6350 2540)
-      (pin Oval[A]Pad_3048x1727.2_um 2 6350 -2540)
-      (pin Oval[A]Pad_3048x1727.2_um 1@1 -6350 2540)
-      (pin Oval[A]Pad_3048x1727.2_um 2@1 -6350 -2540)
-    )
     (image Buttons_Switches_ThroughHole:SW_PUSH_SMALL
       (outline (path signal 150  2540 0  2415.68 -784.903  2054.9 -1492.97  1492.97 -2054.9
             784.903 -2415.68  0 -2540  -784.903 -2415.68  -1492.97 -2054.9
@@ -246,11 +204,6 @@
       (shape (path B.Cu 1600  0 0  0 0))
       (attach off)
     )
-    (padstack Oval[A]Pad_3048x1727.2_um
-      (shape (path F.Cu 1727.2  -660.4 0  660.4 0))
-      (shape (path B.Cu 1727.2  -660.4 0  660.4 0))
-      (attach off)
-    )
     (padstack Oval[A]Pad_1727.2x1727.2_um
       (shape (path F.Cu 1727.2  0 0  0 0))
       (shape (path B.Cu 1727.2  0 0  0 0))
@@ -259,10 +212,6 @@
     (padstack Rect[A]Pad_2000x1900_um
       (shape (rect F.Cu -1000 -950 1000 950))
       (shape (rect B.Cu -1000 -950 1000 950))
-      (attach off)
-    )
-    (padstack Rect[T]Pad_1550x1300_um
-      (shape (rect F.Cu -775 -650 775 650))
       (attach off)
     )
     (padstack Rect[A]Pad_1727.2x1727.2_um
@@ -283,9 +232,6 @@
     (net "Net-(D1-Pad2)"
       (pins D1-2 R13-2)
     )
-    (net "Net-(IC1-Pad1)"
-      (pins IC1-1)
-    )
     (net "Net-(IC1-Pad2)"
       (pins IC1-2 R13-1)
     )
@@ -294,12 +240,6 @@
     )
     (net "Net-(IC1-Pad5)"
       (pins IC1-5 R14-2)
-    )
-    (net "Net-(IC1-Pad6)"
-      (pins IC1-6)
-    )
-    (net /CHG_SW
-      (pins IC1-7)
     )
     (net VCC
       (pins IC1-8 P1-37 P1-39 R14-1)
@@ -331,65 +271,17 @@
     (net /UP
       (pins P1-12 SW3-2 SW3-2@1)
     )
-    (net "Net-(P1-Pad13)"
-      (pins P1-13)
-    )
-    (net "Net-(P1-Pad14)"
-      (pins P1-14)
-    )
-    (net "Net-(P1-Pad15)"
-      (pins P1-15)
-    )
-    (net "Net-(P1-Pad17)"
-      (pins P1-17)
-    )
-    (net "Net-(P1-Pad18)"
-      (pins P1-18)
-    )
-    (net "Net-(P1-Pad19)"
-      (pins P1-19)
-    )
-    (net "Net-(P1-Pad20)"
-      (pins P1-20)
-    )
-    (net "Net-(P1-Pad22)"
-      (pins P1-22)
-    )
-    (net "Net-(P1-Pad23)"
-      (pins P1-23)
-    )
     (net VDD
       (pins P1-24 P1-40 R1-1 R2-1 R3-1 R4-2 R5-2 R6-2 R7-2 R8-2 R9-2 R10-2 R11-2 R12-2)
-    )
-    (net "Net-(P1-Pad25)"
-      (pins P1-25)
     )
     (net /DOWN
       (pins P1-26 SW6-2 SW6-2@1)
     )
-    (net "Net-(P1-Pad27)"
-      (pins P1-27)
-    )
     (net /LEFT
       (pins P1-28 SW9-2 SW9-2@1)
     )
-    (net "Net-(P1-Pad29)"
-      (pins P1-29)
-    )
     (net /RIGHT
       (pins P1-30 SW12-2 SW12-2@1)
-    )
-    (net /UART_TX
-      (pins P1-33)
-    )
-    (net "Net-(P1-Pad34)"
-      (pins P1-34)
-    )
-    (net "Net-(P1-Pad36)"
-      (pins P1-36)
-    )
-    (net "Net-(P1-Pad38)"
-      (pins P1-38)
     )
     (net "Net-(R1-Pad2)"
       (pins R1-2 SW1-1 SW1-1@1)

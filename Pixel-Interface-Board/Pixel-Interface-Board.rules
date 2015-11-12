@@ -11,16 +11,16 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 1541)
+    (start_pass_no 1222)
     (layer_rule F.Cu
       (active on)
-      (preferred_direction vertical)
+      (preferred_direction horizontal)
       (preferred_direction_trace_costs 1.0)
       (against_preferred_direction_trace_costs 2.7)
     )
     (layer_rule B.Cu
       (active on)
-      (preferred_direction horizontal)
+      (preferred_direction vertical)
       (preferred_direction_trace_costs 1.0)
       (against_preferred_direction_trace_costs 1.6)
     )
@@ -62,13 +62,10 @@
     )
   )
   (class "kicad_default"
-    GND "Net-(D1-Pad2)" "Net-(IC1-Pad1)" "Net-(IC1-Pad2)" "/UART_RX" "Net-(IC1-Pad5)" "Net-(IC1-Pad6)" "/CHG_SW"
-    VCC /X /B /START /A /SELECT /L /Y
-    /R /UP "Net-(P1-Pad13)" "Net-(P1-Pad14)" "Net-(P1-Pad15)" "Net-(P1-Pad17)" "Net-(P1-Pad18)" "Net-(P1-Pad19)"
-    "Net-(P1-Pad20)" "Net-(P1-Pad22)" "Net-(P1-Pad23)" VDD "Net-(P1-Pad25)" /DOWN "Net-(P1-Pad27)" /LEFT
-    "Net-(P1-Pad29)" /RIGHT "/UART_TX" "Net-(P1-Pad34)" "Net-(P1-Pad36)" "Net-(P1-Pad38)" "Net-(R1-Pad2)" "Net-(R2-Pad2)"
-    "Net-(R3-Pad2)" "Net-(R4-Pad1)" "Net-(R5-Pad1)" "Net-(R6-Pad1)" "Net-(R7-Pad1)" "Net-(R8-Pad1)" "Net-(R9-Pad1)" "Net-(R10-Pad1)"
-    "Net-(R11-Pad1)" "Net-(R12-Pad1)"
+    GND "Net-(D1-Pad2)" "Net-(IC1-Pad2)" "/UART_RX" "Net-(IC1-Pad5)" VCC /X /B
+    /START /A /SELECT /L /Y /R /UP VDD
+    /DOWN /LEFT /RIGHT "Net-(R1-Pad2)" "Net-(R2-Pad2)" "Net-(R3-Pad2)" "Net-(R4-Pad1)" "Net-(R5-Pad1)"
+    "Net-(R6-Pad1)" "Net-(R7-Pad1)" "Net-(R8-Pad1)" "Net-(R9-Pad1)" "Net-(R10-Pad1)" "Net-(R11-Pad1)" "Net-(R12-Pad1)"
     (clearance_class default)
     (via_rule kicad_default)
     (rule
