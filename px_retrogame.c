@@ -1,6 +1,7 @@
 /*
 Pixel RetroGame - An adaptation of Adafruit's Retrogame
 http://github.com/Adafruit/Adafruit-retrogame
+http://github.com/PyroAVR/DMG-32
 
 
 Remaps buttons on Raspberry Pi GPIO header
@@ -248,21 +249,17 @@ int main(int argc, char *argv[]) {
 	signal(SIGKILL, signalHandler);
 
 	// Modified for Pixel devices, so io is set to use ioPixel.
-	io = ioPixel;
+	//As the DMG-32 board doesn't have an EEPROM, no detection is possible.
+  //It does have an ATTiny85 though, so it may later be able to emulate this?
+  //The only obstacle is that the ATTiny85 is on the Pi's UART pins, and the SPI
+  //pins are occupied as GPIO.
+  io = ioPixel;
 
-	// If this is a "Revision 1" Pi board (no mounting holes),
-	// remap certain pin numbers in the io[] array for compatibility.
-	// This way the code doesn't need modification for old boards.
-  //This may not work now, the Pixel board only works on the Pi A+
-	board = boardType();
-	if(board == 0) {
-		for(i=0; io[i].pin >= 0; i++) {
-			if(     io[i].pin ==  2) io[i].pin = 0;
-			else if(io[i].pin ==  3) io[i].pin = 1;
-			else if(io[i].pin == 27) io[i].pin = 21;
-		}
-	}
+//The interface board does not support older Pis, which likely do not have
+//enough GPIO
 
+//The DMG-32 board has pullup resistors on it, whoops!  This probably isn't needed.
+/*
 	// ----------------------------------------------------------------
 	// Although Sysfs provides solid GPIO interrupt handling, there's
 	// no interface to the internal pull-up resistors (this is by
@@ -296,7 +293,8 @@ int main(int argc, char *argv[]) {
 	gpio[GPPUDCLK0] = 0;
 	(void)munmap((void *)gpio, BLOCK_SIZE); // Done with GPIO mmap()
 
-
+*/
+//From here on out, we're just enabling pins.
 	// ----------------------------------------------------------------
 	// All other GPIO config is handled through the sysfs interface.
 
@@ -343,7 +341,7 @@ int main(int argc, char *argv[]) {
 
 	// ----------------------------------------------------------------
 	// Set up uinput
-
+//In need of changes, most likely, as DMG-32 does not support SDL2
 #if 1
 	// Retrogame normally uses /dev/uinput for generating key events.
 	// Cupcade requires this and it's the default.  SDL2 (used by

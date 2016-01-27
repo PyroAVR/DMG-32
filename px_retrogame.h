@@ -27,17 +27,20 @@ struct {
 ioPixel[] = {
 //This pin/key table is set up for the tentative Pixel Interface Board,
 // which fits quite nicely inside an original DMG Gameboy.
+//These mappings are taken directly from the schematic.  For convenience,
+//the data has been organized into a neat table, Connectivity Table.ods in this
+//repository.
 // Input   Output (from /usr/include/linux/input.h)
-{  16,     KEY_X  },   // A
-{  20,     KEY_Z  },  // B
-{  21,     KEY_A  },  // X
-{  12,     KEY_S  },  // Y
-{  13,     KEY_L  },  // L
-{   6,      KEY_R  }, // R
-{  26,     KEY_ENTER  },  // Start
-{  19,     KEY_LSHIFT },  // Select
-{   5,      KEY_UP  },       // Up
-{  22,     KEY_DOWN },  // Down
-{  27,     KEY_LEFT },    // Left
-{  11,      KEY_RIGHT }, // Right
+{   3,     KEY_A  },   // A
+{   2,     KEY_B  },  // B
+{   4,     KEY_X  },  // X
+{  27,     KEY_Y  },  // Y
+{  18,     KEY_UP  },  // Up
+{   7,      KEY_DOWN  }, // Down
+{  12,     KEY_LEFT  },  // Left
+{  16,     KEY_RIGHT },  // Right
+{  23,      KEY_L  },       // L
+{  24,     KEY_R },  // R
+{  22,     KEY_N },    // Select
+{  10,      KEY_M }, // Start
 {  -1,     -1           } }; // END OF LIST, DO NOT CHANGE
