@@ -11,7 +11,7 @@
 modprobe evdev
 modprobe uinput
 do_start()  {
-  start-stop-daemon -S /opt/system/retrogame
+  start-stop-daemon -S --exec /opt/system/retrogame
   exit 0
 }
 case "$1" in
