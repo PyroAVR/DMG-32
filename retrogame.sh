@@ -11,7 +11,7 @@
 case $1 in
   start)
     echo -n "Starting Retrogame..."
-    nohup /opt/init/retrogame
+    nohup /opt/system/retrogame
     echo "Done!"
     ;;
   stop)

@@ -19,6 +19,13 @@ install:
 clean:
 	rm -f $(EXECS)
 
+#Different name to differentiate from the original, just in case it's desired to have both.
 pixel: px_retrogame.c
 		$(CC) $< -o $@
 		strip $@
+
+install-pixel: pixel
+	mkdir -p /opt/system
+	mv pixel /opt/system/retrogame
+	cp retrogame.sh /etc/init.d/retrogame
+	insserv /etc/init.d/retrogame
