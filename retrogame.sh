@@ -11,7 +11,7 @@
 modprobe evdev
 modprobe uinput
 do_start()  {
-  /opt/system/retrogame
+  start-stop-daemon -S /opt/system/retrogame
   exit 0
 }
 case "$1" in
@@ -22,12 +22,12 @@ case "$1" in
     ;;
   stop)
     echo -n "Killing Retrogame..."
-    killall retrogame
+    start-stop-daemon -K retrogame
     echo "Done!"
     ;;
   restart)
     echo -n "Stopping Retrogame..."
-    killall retrogame
+    start-stop-daemon -K retrogame
     echo "Done!"
     echo -n "Starting Retrogame..."
     do_start
