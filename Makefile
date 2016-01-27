@@ -28,4 +28,8 @@ install-pixel: pixel
 	mkdir -p /opt/system
 	mv pixel /opt/system/retrogame
 	cp retrogame.sh /etc/init.d/retrogame
+	chmod a+x /etc/init.d/retrogame
 	insserv /etc/init.d/retrogame
+
+#Just an alias
+pixel-install: install-pixel

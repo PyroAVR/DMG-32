@@ -1,17 +1,23 @@
 #!/bin/sh -e
 ### BEGIN INIT INFO
 # Provides:           retrogame
-# Required-Start:  uinput evdev
+# Required-Start:
 # Required-Stop:
 # Default-Start:     2
 # Default-Stop:     6
 # Short-Description: Virtual keyboard from GPIO
 # Description:  Run retrogame from Adafruit Industries/Pixel located in /opt/init to create a virtual keyboard which reads directly from GPIO to creates keypress events.
 ### END INIT INFO
-case $1 in
-  start)
+modprobe evdev
+modprobe uinput
+do_start()  {
+  /opt/system/retrogame
+  exit 0
+}
+case "$1" in
+  start|"")
     echo -n "Starting Retrogame..."
-    nohup /opt/system/retrogame
+    do_start
     echo "Done!"
     ;;
   stop)
@@ -24,6 +30,10 @@ case $1 in
     killall retrogame
     echo "Done!"
     echo -n "Starting Retrogame..."
-    nohup retrogame
+    do_start
     ;;
+  *)
+  echo "Usage: retrogame {start|stop|restart}"
+  exit 3
+  ;;
 esac
