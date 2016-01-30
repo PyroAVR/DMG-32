@@ -95,7 +95,9 @@ POSSIBILITY OF SUCH DAMAGE.
 // Also key auto-repeat times are set here.  This is for navigating the
 // game menu using the 'gamera' utility; MAME disregards key repeat
 // events (as it should).
-const unsigned long vulcanMask = (1L << 6) | (1L << 7);
+//This causes random crashes if those pins are not connected properly!
+//Elements 10 and 11 are START and SELECT in ioPixel
+const unsigned long vulcanMask /*= (1L << 10) | (1L << 11)*/;
 const int           vulcanKey  = KEY_ESC, // Keycode to send
                     vulcanTime = 1500,    // Pinch time in milliseconds
                     repTime1   = 500,     // Key hold time to begin repeat
