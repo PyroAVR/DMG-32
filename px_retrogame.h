@@ -44,3 +44,22 @@ ioPixel[] = {
 {  22,     KEY_N },    // Select
 {  10,      KEY_M }, // Start
 {  -1,     -1           } }; // END OF LIST, DO NOT CHANGE
+
+// A "Vulcan nerve pinch" (holding down a specific button combination
+// for a few seconds) issues an 'esc' keypress to RetroArch (which brings up
+// an exit menu or quits the current game).  The button combo is
+// configured with a bitmask corresponding to elements in the above io[]
+// array.  The default value here uses elements 10 and 11 (select and start
+// in the DMG-32 pinout).  If you change this, make certain it's a combo
+// that's not likely to occur during actual gameplay (i.e. avoid using
+// joystick directions or hold-for-rapid-fire buttons).
+// Also key auto-repeat times are set here.  This is for navigating the
+// game menu using the 'gamera' utility; MAME disregards key repeat
+// events (as it should).
+//This causes random crashes if those pins are not connected properly!
+//Elements 10 and 11 are START and SELECT in ioPixel
+const unsigned long vulcanMask = (1L << 10) | (1L << 11);
+const int           vulcanKey  = KEY_Q, // Keycode to send
+                    vulcanTime = 1500,    // Pinch time in milliseconds
+                    repTime1   = 500,     // Key hold time to begin repeat
+                    repTime2   = 100;     // Time between key repetitions
