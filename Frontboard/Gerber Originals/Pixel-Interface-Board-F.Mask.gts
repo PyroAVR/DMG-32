@@ -1,10 +1,10 @@
 %TF.GenerationSoftware,KiCad,Pcbnew,(2015-12-28 BZR 6407, Git 3dff6c0)-product*%
-%TF.CreationDate,2016-01-26T20:04:16-05:00*%
+%TF.CreationDate,2016-02-06T15:03:34-05:00*%
 %TF.ProjectId,Pixel-Interface-Board,506978656C2D496E746572666163652D,rev?*%
 %TF.FileFunction,Soldermask,Top*%
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW (2015-12-28 BZR 6407, Git 3dff6c0)-product) date Tue 26 Jan 2016 08:04:16 PM EST*
+G04 Created by KiCad (PCBNEW (2015-12-28 BZR 6407, Git 3dff6c0)-product) date Sat 06 Feb 2016 03:03:34 PM EST*
 %MOMM*%
 G01*
 G04 APERTURE LIST*
