@@ -241,7 +241,7 @@ int main(int argc, char *argv[]) {
 //enough GPIO
 
 //The DMG-32 board has pullup resistors on it, whoops!  This probably isn't needed.
-/*
+
 	// ----------------------------------------------------------------
 	// Although Sysfs provides solid GPIO interrupt handling, there's
 	// no interface to the internal pull-up resistors (this is by
@@ -275,7 +275,7 @@ int main(int argc, char *argv[]) {
 	gpio[GPPUDCLK0] = 0;
 	(void)munmap((void *)gpio, BLOCK_SIZE); // Done with GPIO mmap()
 
-*/
+
 //From here on out, we're just enabling pins.
 	// ----------------------------------------------------------------
 	// All other GPIO config is handled through the sysfs interface.
