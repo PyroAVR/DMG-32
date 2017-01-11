@@ -2,36 +2,41 @@ SOFTWARE SETUP
 ==========
 I/O Pins for Pixel Interface board:
 (Make sure these are correct!)
+Note that BCM# and GPIO# are synonymous
+
 GPIO NAME         PIN #               FUNCTION          MAP
-GPIO16               36               A BUTTON          KEY_A
-GPIO20               38               B BUTTON          KEY_B
-GPIO21               40               X BUTTON          KEY_X
-GPIO12               32               Y BUTTON          KEY_Y
-GPIO13               33               L BUTTON          KEY_L
-GPIO6                31               R BUTTON          KEY_R
-GPIO19               35               SELECT            KEY_N
-GPIO26               37               START             KEY_M
-GPIO5                29               UP                KEY_UP
-GPIO22               15               DOWN              KEY_DOWN
-GPIO27               13               LEFT              KEY_LEFT
-GPIO11               17               RIGHT             KEY_RIGHT
+GPIO3                05               A BUTTON          KEY_A
+GPIO2                03               B BUTTON          KEY_B
+GPIO4                07               X BUTTON          KEY_X
+GPIO27               13               Y BUTTON          KEY_Y
+GPIO23               16               L BUTTON          KEY_L
+GPIO24               18               R BUTTON          KEY_R
+GPIO22               15               SELECT            KEY_N
+GPIO10               19               START             KEY_M
+GPIO17               11               UP                KEY_UP
+GPIO7                26               DOWN              KEY_DOWN
+GPIO12               32               LEFT              KEY_LEFT
+GPIO16               36               RIGHT             KEY_RIGHT
 
 ```C
 ioPixel[] = {
 //This pin/key table is set up for the tentative Pixel Interface Board,
 // which fits quite nicely inside an original DMG Gameboy.
+//These mappings are taken directly from the schematic.  For convenience,
+//the data has been organized into a neat table, Connectivity Table.ods in this
+//repository.
 // Input   Output (from /usr/include/linux/input.h)
-{  16,     KEY_A  },    // A
-{  20,     KEY_B  },    // B
-{  21,     KEY_X  },    // X
-{  12,     KEY_Y  },    // Y
-{  13,     KEY_L  },    // L
-{   6,     KEY_R  },    // R
-{  19,     KEY_N },     // Select
-{  26,     KEY_M  },    // Start
-{   5,     KEY_UP  },   // Up
-{  22,     KEY_DOWN },  // Down
-{  27,     KEY_LEFT },  // Left
-{  11,     KEY_RIGHT }, // Right
+{   3,     KEY_A  },    // A
+{   2,     KEY_B  },    // B
+{   4,     KEY_X  },    // X
+{  27,     KEY_Y  },    // Y
+{  17,     KEY_UP  },   // Up
+{   7,     KEY_DOWN  }, // Down
+{  12,     KEY_LEFT  }, // Left
+{  16,     KEY_RIGHT }, // Right
+{  23,     KEY_L  },    // L
+{  24,     KEY_R }      // R
+{  22,     KEY_N },     // Select
+{  10,     KEY_M },     // Start
 {  -1,     -1           } }; // END OF LIST, DO NOT CHANGE
 ```
