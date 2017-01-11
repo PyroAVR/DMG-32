@@ -31,18 +31,18 @@ ioPixel[] = {
 //the data has been organized into a neat table, Connectivity Table.ods in this
 //repository.
 // Input   Output (from /usr/include/linux/input.h)
-{   3,     KEY_A  },   // A
-{   2,     KEY_B  },  // B
-{   4,     KEY_X  },  // X
-{  27,     KEY_Y  },  // Y
-{  18,     KEY_UP  },  // Up
-{   7,      KEY_DOWN  }, // Down
-{  12,     KEY_LEFT  },  // Left
-{  16,     KEY_RIGHT },  // Right
-{  23,      KEY_L  },       // L
-{  24,     KEY_R },  // R
-{  22,     KEY_N },    // Select
-{  10,      KEY_M }, // Start
+{   3,     KEY_A  },    // A
+{   2,     KEY_B  },    // B
+{   4,     KEY_X  },    // X
+{  27,     KEY_Y  },    // Y
+{  17,     KEY_UP  },   // Up
+{   7,     KEY_DOWN  }, // Down
+{  12,     KEY_LEFT  }, // Left
+{  16,     KEY_RIGHT }, // Right
+{  23,     KEY_L  },    // L
+{  24,     KEY_R }      // R
+{  22,     KEY_N },     // Select
+{  10,     KEY_M },     // Start
 {  -1,     -1           } }; // END OF LIST, DO NOT CHANGE
 
 // A "Vulcan nerve pinch" (holding down a specific button combination
