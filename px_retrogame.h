@@ -40,7 +40,7 @@ ioPixel[] = {
 {  12,     KEY_LEFT  }, // Left
 {  16,     KEY_RIGHT }, // Right
 {  23,     KEY_L  },    // L
-{  24,     KEY_R }      // R
+{  24,     KEY_R },     // R
 {  22,     KEY_N },     // Select
 {  10,     KEY_M },     // Start
 {  -1,     -1           } }; // END OF LIST, DO NOT CHANGE
