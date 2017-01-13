@@ -14,7 +14,7 @@ GPIO24               18               R BUTTON          KEY_R
 GPIO22               15               SELECT            KEY_N
 GPIO10               19               START             KEY_M
 GPIO17               11               UP                KEY_UP
-GPIO7                26               DOWN              KEY_DOWN
+GPIO5                26               DOWN              KEY_DOWN
 GPIO12               32               LEFT              KEY_LEFT
 GPIO16               36               RIGHT             KEY_RIGHT
 
@@ -31,7 +31,7 @@ ioPixel[] = {
 {   4,     KEY_X  },    // X
 {  27,     KEY_Y  },    // Y
 {  17,     KEY_UP  },   // Up
-{   7,     KEY_DOWN  }, // Down
+{   5,     KEY_DOWN  }, // Down
 {  12,     KEY_LEFT  }, // Left
 {  16,     KEY_RIGHT }, // Right
 {  23,     KEY_L  },    // L

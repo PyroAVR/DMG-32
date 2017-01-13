@@ -36,7 +36,7 @@ ioPixel[] = {
 {   4,     KEY_X  },    // X
 {  27,     KEY_Y  },    // Y
 {  17,     KEY_UP  },   // Up
-{   7,     KEY_DOWN  }, // Down
+{   5,     KEY_DOWN  }, // Down
 {  12,     KEY_LEFT  }, // Left
 {  16,     KEY_RIGHT }, // Right
 {  23,     KEY_L  },    // L
